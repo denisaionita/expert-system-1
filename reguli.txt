@@ -1,0 +1,124 @@
+[scop]firma_solutie[/scop]
+
+
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	platforma_aplicatiei # (web),
+	nivelul_aplicatiei # (complet),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (sparktech) | fc # (89)
+[/regula].
+
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	platforma_aplicatiei # (web),
+	nivelul_aplicatiei # (frontend),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (sparktech) | fc # (87)
+[/regula].
+
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	platforma_aplicatiei # (mobile),
+	nivelul_aplicatiei # (frontend),
+	firma_autohtona not,
+	creezi_joc not
+implicatie_regula:
+    firma_solutie # (sparktech) | fc # (85)
+[/regula].
+
+
+
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	platforma_aplicatiei # (mobile),
+	nivelul_aplicatiei # (complet),
+	tehnologii_ultima_ora # (machine_learning),
+	creezi_joc not
+implicatie_regula:
+    firma_solutie # (sparktech) | fc # (90)
+[/regula].
+
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	platforma_aplicatiei # (desktop),
+	domeniul_aplicatiei # (gaming)
+implicatie_regula:
+    firma_solutie # (EA_Games) | fc # (88)
+[/regula].
+
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	platforma_aplicatiei # (desktop),
+	domeniul_aplicatiei # (gaming),
+	tehnologii_ultima_ora # (vr)
+implicatie_regula:
+    firma_solutie # (EA_Games) | fc # (85)
+[/regula].
+
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (securitate),
+	platforma_aplicatiei # (desktop),
+	domeniul_aplicatiei # (security),
+	tehnologii_ultima_ora # (vr)
+implicatie_regula:
+    firma_solutie # (Bitdefender) | fc # (85)
+[/regula].
+
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	creezi_software not,
+	necesitate_baza # (securitate),
+	platforma_aplicatiei # (desktop),
+	domeniul_aplicatiei # (security),
+	tehnologii_ultima_ora # (vr)
+implicatie_regula:
+    firma_solutie # (Bitdefender) | fc # (85)
+[/regula]
+
+
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	platforma_aplicatiei # (web),
+	tehnologii_ultima_ora # (machine_learning)
+implicatie_regula:
+    firma_solutie # (sparktech) | fc # (85)
+[/regula].
+
+[regula]
+nr:id(id e numarul regulii)
+premise_regula: 
+    atr # (valoare) (pentru atribute cu valori multiple)
+    atr (pentru atribute booleene, valoare true)
+    atr not (pentru atribute booleene, valoare false)
+implicatie_regula:
+    atr # (valoare) | fc # (nr)
+[/regula].
+
+
+[intrebare]
+text # 'continut intrebare'
+atributul_intrebarii # atribut
+optiuni # {val1 * val2 * val3 ...}
+[/intrebare]
