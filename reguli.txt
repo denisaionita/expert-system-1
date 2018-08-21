@@ -14,6 +14,7 @@ implicatie_regula:
     firma_solutie # (sparktech) | fc # (89)
 [/regula].
 
+[regula]
 nr:1
 premise_regula: 
     categoria_problemei # (software),
@@ -25,6 +26,7 @@ implicatie_regula:
     firma_solutie # (sparktech) | fc # (87)
 [/regula].
 
+[regula]
 nr:1
 premise_regula: 
     categoria_problemei # (software),
@@ -38,7 +40,7 @@ implicatie_regula:
 [/regula].
 
 
-
+[regula]
 nr:1
 premise_regula: 
     categoria_problemei # (software),
@@ -51,6 +53,7 @@ implicatie_regula:
     firma_solutie # (sparktech) | fc # (90)
 [/regula].
 
+[regula]
 nr:1
 premise_regula: 
     categoria_problemei # (software),
@@ -61,6 +64,7 @@ implicatie_regula:
     firma_solutie # (EA_Games) | fc # (88)
 [/regula].
 
+[regula]
 nr:1
 premise_regula: 
     categoria_problemei # (software),
@@ -72,6 +76,7 @@ implicatie_regula:
     firma_solutie # (EA_Games) | fc # (85)
 [/regula].
 
+[regula]
 nr:1
 premise_regula: 
     categoria_problemei # (software),
@@ -83,19 +88,181 @@ implicatie_regula:
     firma_solutie # (Bitdefender) | fc # (85)
 [/regula].
 
+[regula]
 nr:1
 premise_regula: 
     categoria_problemei # (software),
 	creezi_software not,
 	necesitate_baza # (securitate),
 	platforma_aplicatiei # (desktop),
-	domeniul_aplicatiei # (security),
-	tehnologii_ultima_ora # (vr)
+	domeniul_aplicatiei # (security)
 implicatie_regula:
-    firma_solutie # (Bitdefender) | fc # (85)
+    firma_solutie # (Bitdefender) | fc # (88)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	creezi_software not,
+	necesitate_baza # (securitate),
+	platforma_aplicatiei # (desktop),
+	firma_autohtona
+implicatie_regula:
+    firma_solutie # (Bitdefender) | fc # (90)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (support),
+	tip_suport # (testare)
+implicatie_regula:
+    firma_solutie # (Pluriva) | fc # (87)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	nivelul_aplicatiei # (backend)
+	firma_autohtona
+implicatie_regula:
+    firma_solutie # (Baquend) | fc # (91)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	nivelul_aplicatiei # (web)
+	firma_autohtona
+implicatie_regula:
+    firma_solutie # (Baquend) | fc # (90)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (hardware),
+	necesitate_baza # (retelistica),
+	tip_hardware # (servere)
+implicatie_regula:
+    firma_solutie # (Cisco) | fc # (89)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (hardware),
+	necesitate_baza # (retelistica),
+	tip_hardware # (infrastructura)
+implicatie_regula:
+    firma_solutie # (Cisco) | fc # (88)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	creezi_software not,
+	necesitate_baza # (retelistica)
+implicatie_regula:
+    firma_solutie # (Cisco) | fc # (87)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	nivelul_aplicatiei # (complet),
+	platforma_aplicatiei # (mobile),
+	domeniul_aplicatiei # (banking),
+	tehnologii_ultima_ora # (machine_learning)
+implicatie_regula:
+    firma_solutie # (IBM) | fc # (92)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	nivelul_aplicatiei # (complet),
+	platforma_aplicatiei # (mobile),
+	tehnologii_ultima_ora # (machine_learning)
+implicatie_regula:
+    firma_solutie # (IBM) | fc # (82)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	nivelul_aplicatiei # (frontend),
+	platforma_aplicatiei # (web)
+implicatie_regula:
+    firma_solutie # (EauDeWeb) | fc # (89)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	nivelul_aplicatiei # (backend),
+	tehnologii_ultima_ora # (machine_learning)
+implicatie_regula:
+    firma_solutie # (Microsoft) | fc # (89)
 [/regula]
 
 
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (software),
+	necesitate_baza # (aplicatie),
+	nivelul_aplicatiei # (backend),
+	tehnologii_ultima_ora # (blockchain)
+implicatie_regula:
+    firma_solutie # (AmazonWebServices) | fc # (89)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (support),
+	necesitate_baza # (retelistica),
+	tip_suport # (administrare_monitorizare_retea)
+implicatie_regula:
+    firma_solutie # (DotNetwork) | fc # (89)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (support),
+	tip_suport # (suport_tehnic)
+implicatie_regula:
+    firma_solutie # (DotNetwork) | fc # (90)
+[/regula]
+
+[regula]
+nr:1
+premise_regula: 
+    categoria_problemei # (support),
+	necesitate_baza # (retelistica),
+	tip_suport # (administrare_monitorizare_retea)
+implicatie_regula:
+    firma_solutie # (Cisco)| fc # (87)
+[/regula]
+
+
+[regula]
 nr:1
 premise_regula: 
     categoria_problemei # (software),
@@ -105,6 +272,8 @@ premise_regula:
 implicatie_regula:
     firma_solutie # (sparktech) | fc # (85)
 [/regula].
+
+
 
 [regula]
 nr:id(id e numarul regulii)
