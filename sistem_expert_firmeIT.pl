@@ -9,7 +9,7 @@
 :-dynamic interogabil/3.
 :-dynamic regula/3.
 :-dynamic intrebare_curenta/3.
-:-dynamic descriere/5. %adaugat pentru incarcarea descrierii
+:-dynamic descriere/4. %adaugat pentru incarcarea descrierii
 
 not(P):-P,!,fail.
 not(_).
@@ -24,7 +24,7 @@ write('Fapte existente în baza de cunostinte:'),
 nl,nl, write(' (Atribut,valoare) '), nl,nl,
 listeaza_fapte,nl.
 
-listeaza_fapte:-  % TREBUIE MODIFICAT PT CERINTA f
+listeaza_fapte:-  
 fapt(av(Atr,Val),FC,_), 
 write('('),write(Atr),write(','),
 write(Val), write(')'),
@@ -73,7 +73,7 @@ executa([_|_]) :-
 sorteaza(Lscop) :- %ordoneaza solutiile descrescator dupa fc
     setof(solutie(FC,Atr,Val),Istoric^fapt(av(Atr,Val),FC,Istoric),Laux),   %ia toat din fapt si ordoneaza dupa fc
     reverse(Laux,L),
-	findall(solutie(FC,actor,Val), member(solutie(FC,actor,Val),L),Lscop).	  %ia doar atributul care contine scopul deci solutia
+	findall(solutie(FC,firma,Val), member(solutie(FC,firma,Val),L),Lscop).	  %ia doar atributul care contine scopul deci solutia
 	
 afiseaza_solutii(L) :- %afiseaza solutiile pe ecran, aici le si sortam inainte de afisare
 	sorteaza(L),nl,
@@ -81,7 +81,7 @@ afiseaza_solutii(L) :- %afiseaza solutiile pe ecran, aici le si sortam inainte d
 	nl,afiseaza_scop(L),nl ).
 
 scopuri_princ :-
-	scop(Atr),determina(Atr),afiseaza_solutii(L),!.
+	trace,scop(Atr),determina(Atr),afiseaza_solutii(L),!.
 scopuri_princ. % caz de oprire
 
 determina(Atr) :-
@@ -302,33 +302,33 @@ incarca_regulile :-
 proceseaza([end_of_file]):-!.
 proceseaza(L) :-
 	trad(R,L,[]),assertz(R), !.	% trad va face parsarea
-trad(scop(X)) --> [scop,/,X,\].  %Predicat DCG  transforma o propozitie de genul Scopul este cursa_avion  in scop(cursa_avion)
+trad(scop(X)) --> ['[scop]',X,'[/scop]'].  %Predicat DCG  transforma o propozitie de genul Scopul este cursa_avion  in scop(cursa_avion)
 trad(interogabil(Atr,M,P)) --> 
-	afiseaza(Atr,P),['atribut',/,Atr,\],lista_optiuni(M).
+	afiseaza(Atr,P),['atributul_intrebarii','#',Atr],lista_optiuni(M).
 	
 trad(regula(N,premise(Daca),concluzie(Atunci,F))) --> 
 	identificator(N),atunci(Atunci,F),daca(Daca).
 trad('Eroare la parsare'-L,L,_).
 
-lista_optiuni(M) --> ['optiuni','['],lista_de_optiuni(M).
-lista_de_optiuni([Element]) -->  [Element,']'].
-lista_de_optiuni([Element|T]) --> [Element,/,\],lista_de_optiuni(T).
+lista_optiuni(M) --> ['optiuni','#','{'],lista_de_optiuni(M).
+lista_de_optiuni([Element]) -->  [Element,'}','[/intrebare]'].
+lista_de_optiuni([Element|T]) --> [Element,'*'],lista_de_optiuni(T).
 
-afiseaza(_,P) -->  ['intrebare',':','enunt',/,P,\].
+afiseaza(_,P) -->  ['[intrebare]','text','#',P].
 afiseaza(P,P) -->  [].
-identificator(N) --> ['regula',/,N,\].
+identificator(N) --> ['[regula]','nr:',N].
 
-daca(Daca) --> ['conditiile',':'],lista_premise(Daca).
+daca(Daca) --> ['premise_regula',':'],lista_premise(Daca).
 
 lista_premise([Daca]) --> propoz(Daca).
 lista_premise([Prima|Celalalte]) --> propoz(Prima),[','],lista_premise(Celalalte).
 
-atunci(Atunci,FC) -->['concluzie'],propoz(Atunci),['f_c',/,FC,\].
+atunci(Atunci,FC) -->['implicatie_regula',':'],propoz(Atunci),['|','fc','#','(',FC,')'].
 atunci(Atunci,100) --> propoz(Atunci).
 
-propoz(not av(Atr,da)) --> [/,'not',Atr,\]. 
-propoz(av(Atr,Val)) --> [Atr,/,Val,\].
-propoz(av(Atr,da)) --> [/,Atr,\].
+propoz(not av(Atr,da)) --> [Atr,'not']. 
+propoz(av(Atr,Val)) --> [Atr,'#','(',Val,')'].
+propoz(av(Atr,da)) --> [Atr,Val].
 
 incarca_descriere(F) :- 
 	retractall(descriere(_,_,_,_,_)),
@@ -344,26 +344,23 @@ citeste_descriere(L):-
  Lin=['-','-'|_], L=[],!;
  citeste_descriere(RestLinii),append(Lin,RestLinii,L) ).
 
-trad(descriere(Actor,Descriere,Site,CaleImagine,ListaGenuri)) -->
-	nume_actor(Actor),
+trad(descriere(Firma,Descriere,CaleImagine,Proprietati)) -->
+	nume_firma(Firma),
 	desc(Descriere),
-	site(Site),
 	cale(CaleImagine),
-	lista_premise_desc(ListaGenuri).
+	lista_premise_desc(Proprietati).
 
-nume_actor(Actor) --> ['(','actor',/,/,/,Actor,'descriere'].
+nume_firma(Firma) --> ['solutie','-','-','-',Firma,'descriere'].
 
-desc(Descriere) --> [/,/,/,'[',Descriere,']'].
+desc(Descriere) --> ['descriere','-','-','-',Descriere].
 
-site(Site) --> ['site',/,/,/,Site,'imagine'].
+cale(Cale) --> ['imagine','-','-','-','{',Cale,'}','proprietati','-','-','-'].
 
-cale(Cale) --> [/,/,/,Cale,'genuri',':'].
-
-
-lista_premise_desc([Gen]) --> propoz_desc(Gen),[')']. 
+%% TO DO: Change here for description
+lista_premise_desc([Proprietate]) --> propoz_desc(Proprietate),[')']. 
 lista_premise_desc([Prima|Celalalte]) --> propoz_desc(Prima),[';'],lista_premise_desc(Celalalte).
 
-propoz_desc(lista_genuri(Gen)) --> ['(',Gen,')'].
+propoz_desc(lista_genuri(Proprietate)) --> ['(',Proprietate,')'].
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -464,10 +461,11 @@ citeste_cuvant(_,Cuvant,Caracter1) :-
 get_code(Caracter),       
 citeste_cuvant(Caracter,Cuvant,Caracter1). 
 
-caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,47,92,95,93,91]).
+caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,47,91,93,35,123,125,42,45,124]).
 
-% am specificat codurile ASCII pentru , ; : ? ! . ) (
-% Am adaugat in plus codurile pentru parsare : reguli,intrebari / \ _ ] [  si descriere (sunt deja mentionate de la inceput)
+
+% am specificat codurile ASCII pentru , ; : ? ! . ) ( |
+% Am adaugat in plus codurile pentru parsare : reguli,intrebari / # * ] [  {} si - pt descriere
 
 caractere_in_interiorul_unui_cuvant(C):-
 	C>64,C<91;C>47,C<58;

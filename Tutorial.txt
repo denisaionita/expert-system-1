@@ -1,0 +1,13 @@
+
+File-> Working Directory -> working directory
+File-> Consult -> sistem.pl
+----------------
+pornire. lanseaza sistemul, meniul principal adica
+
+-----------------
+incarca - incarca fisierele de reguli/descriere
+consulta - lanseaza sistemul, cauta solutii, adreseaza intrebari
+reinitiaza -  sterge baza de cunostinte ( reguli, tot)
+afisare_fapte - afiseaza toate atributele din baza de cunostinte
+cum - demonstratia
+iesire - inchide sistemul ( meniul)
