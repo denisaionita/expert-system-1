@@ -1,9 +1,24 @@
 [scop]firma_solutie[/scop].
 
-
-
 [regula]
 nr:1
+premise_regula: 
+    creezi_software
+implicatie_regula:
+    categoria_problemei # (software) | fc # (88)
+[/regula].
+
+[regula]
+nr:2
+premise_regula: 
+    categoria_problemei # (software),
+	creezi_joc
+implicatie_regula:
+    domeniul_aplicatiei # (gaming) | fc # (87)
+[/regula].
+
+[regula]
+nr:3
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -14,9 +29,8 @@ implicatie_regula:
     firma_solutie # (sparktech) | fc # (89)
 [/regula].
 
-
 [regula]
-nr:2
+nr:4
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -28,7 +42,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:3
+nr:5
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -42,7 +56,7 @@ implicatie_regula:
 
 
 [regula]
-nr:4
+nr:6
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -55,7 +69,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:5
+nr:7
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -66,7 +80,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:6
+nr:8
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -78,7 +92,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:7
+nr:9
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (securitate),
@@ -90,7 +104,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:8
+nr:10
 premise_regula: 
     categoria_problemei # (software),
 	creezi_software not,
@@ -102,7 +116,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:9
+nr:11
 premise_regula: 
     categoria_problemei # (software),
 	creezi_software not,
@@ -114,7 +128,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:10
+nr:12
 premise_regula: 
     categoria_problemei # (support),
 	tip_suport # (testare)
@@ -123,7 +137,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:11
+nr:13
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -134,7 +148,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:12
+nr:14
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -145,7 +159,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:13
+nr:15
 premise_regula: 
     categoria_problemei # (hardware),
 	necesitate_baza # (retelistica),
@@ -155,7 +169,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:14
+nr:16
 premise_regula: 
     categoria_problemei # (hardware),
 	necesitate_baza # (retelistica),
@@ -165,7 +179,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:15
+nr:17
 premise_regula: 
     categoria_problemei # (software),
 	creezi_software not,
@@ -175,7 +189,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:16
+nr:18
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -188,7 +202,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:17
+nr:19
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -200,7 +214,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:18
+nr:20
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -211,7 +225,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:19
+nr:21
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -223,7 +237,7 @@ implicatie_regula:
 
 
 [regula]
-nr:20
+nr:22
 premise_regula: 
     categoria_problemei # (software),
 	necesitate_baza # (aplicatie),
@@ -234,7 +248,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:21
+nr:23
 premise_regula: 
     categoria_problemei # (support),
 	necesitate_baza # (retelistica),
@@ -244,7 +258,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:22
+nr:24
 premise_regula: 
     categoria_problemei # (support),
 	tip_suport # (suport_tehnic)
@@ -253,7 +267,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:23
+nr:25
 premise_regula: 
     categoria_problemei # (support),
 	necesitate_baza # (retelistica),
@@ -263,7 +277,67 @@ implicatie_regula:
 [/regula].
 
 [intrebare]
-text # 'continut intrebare'
-atributul_intrebarii # categoria_problemei 
-optiuni # {val1 * val2 * val3}
+text # 'Scopul  tau este sa screezi software?'
+atributul_intrebarii # creezi_software 
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Doresti sa creezi un joc?'
+atributul_intrebarii # creezi_joc 
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Doresti sa colaborezi exclusiv cu o firma autohtona?'
+atributul_intrebarii # firma_autohtona 
+optiuni # {da * nu}
+[/intrebare].
+
+[intrebare]
+text # 'Din ce categorie facde parte problema dvs?'
+atributul_intrebarii # categoria_problemei
+optiuni # {software * hardware * suport}
+[/intrebare].
+
+[intrebare]
+text # 'La ce nivel al aplicatiei aveti nevoie de ajutor?'
+atributul_intrebarii # nivelul_aplicatiei
+optiuni # {frontend * backend * complet}
+[/intrebare].
+
+[intrebare]
+text # 'Pe ce platforma este aplicatia dorita?'
+atributul_intrebarii # platforma_aplicatiei
+optiuni # {web * mobile * desktop}
+[/intrebare].
+
+[intrebare]
+text # 'In ce domeniu se incadreaza aplicatia?'
+atributul_intrebarii # domeniul_aplicatiei
+optiuni # {gaming * banking * security * medical}
+[/intrebare].
+
+[intrebare]
+text # 'Doriti ca aplicatia sa contina tehnologii de ultima ora? Ce tehnologie?'
+atributul_intrebarii # tehnologii_ultima_ora
+optiuni # {vr * blockchain * machine_learning * senzori}
+[/intrebare].
+
+[intrebare]
+text # 'De ce tip de ajutor hardware aveti nevoie?'
+atributul_intrebarii # tip_hardware
+optiuni # {servere * calculatoare * infrastructura}
+[/intrebare].
+
+[intrebare]
+text # 'De ce tip de suport aveti nevoie?'
+atributul_intrebarii # tip_suport
+optiuni # {testare * suport_tehnic * administrare_monitorizare_retea}
+[/intrebare].
+
+[intrebare]
+text # 'Care ar fi necesitatea de baza a aplicatiei?'
+atributul_intrebarii # necesitate_baza
+optiuni # {securitate * aplicatie * retelistica}
 [/intrebare].

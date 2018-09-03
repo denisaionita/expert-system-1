@@ -73,7 +73,7 @@ executa([_|_]) :-
 sorteaza(Lscop) :- %ordoneaza solutiile descrescator dupa fc
     setof(solutie(FC,Atr,Val),Istoric^fapt(av(Atr,Val),FC,Istoric),Laux),   %ia toat din fapt si ordoneaza dupa fc
     reverse(Laux,L),
-	findall(solutie(FC,firma,Val), member(solutie(FC,firma,Val),L),Lscop).	  %ia doar atributul care contine scopul deci solutia
+	findall(solutie(FC,firma_solutie,Val), member(solutie(FC,firma_solutie,Val),L),Lscop).	  %ia doar atributul care contine scopul deci solutia
 	
 afiseaza_solutii(L) :- %afiseaza solutiile pe ecran, aici le si sortam inainte de afisare
 	sorteaza(L),nl,
@@ -81,7 +81,7 @@ afiseaza_solutii(L) :- %afiseaza solutiile pe ecran, aici le si sortam inainte d
 	nl,afiseaza_scop(L),nl ).
 
 scopuri_princ :-
-	trace,scop(Atr),determina(Atr),afiseaza_solutii(L),!.
+	scop(Atr),determina(Atr),afiseaza_solutii(L),!.
 scopuri_princ. % caz de oprire
 
 determina(Atr) :-
@@ -302,28 +302,28 @@ incarca_regulile :-
 proceseaza([end_of_file]):-!.
 proceseaza(L) :-
 	trad(R,L,[]),assertz(R), !.	% trad va face parsarea
-trad(scop(X)) --> ['[scop]',X,'[/scop]'].  %Predicat DCG  transforma o propozitie de genul Scopul este cursa_avion  in scop(cursa_avion)
-trad(interogabil(Atr,M,P)) --> 
+trad(scop(X)) --> ['[',scop,']',X,'[',/,scop,']'].  %Predicat DCG  transforma o propozitie de genul Scopul este cursa_avion  in scop(cursa_avion)
+trad(interogabil(Atr,M,P)) -->
 	afiseaza(Atr,P),['atributul_intrebarii','#',Atr],lista_optiuni(M).
 	
 trad(regula(N,premise(Daca),concluzie(Atunci,F))) --> 
-	identificator(N),atunci(Atunci,F),daca(Daca).
+	identificator(N),daca(Daca),atunci(Atunci,F).
 trad('Eroare la parsare'-L,L,_).
 
 lista_optiuni(M) --> ['optiuni','#','{'],lista_de_optiuni(M).
-lista_de_optiuni([Element]) -->  [Element,'}','[/intrebare]'].
+lista_de_optiuni([Element]) -->  [Element,'}','[',/,intrebare,']'].
 lista_de_optiuni([Element|T]) --> [Element,'*'],lista_de_optiuni(T).
 
-afiseaza(_,P) -->  ['[intrebare]','text','#',P].
+afiseaza(_,P) -->  ['[',intrebare,']','text','#',P].
 afiseaza(P,P) -->  [].
-identificator(N) --> ['[regula]','nr:',N].
+identificator(N) --> ['[',regula,']','nr',':',N, 'premise_regula'].
 
-daca(Daca) --> ['premise_regula',':'],lista_premise(Daca).
+daca(Daca) --> [':'],lista_premise(Daca).
 
 lista_premise([Daca]) --> propoz(Daca).
 lista_premise([Prima|Celalalte]) --> propoz(Prima),[','],lista_premise(Celalalte).
 
-atunci(Atunci,FC) -->['implicatie_regula',':'],propoz(Atunci),['|','fc','#','(',FC,')'].
+atunci(Atunci,FC) -->['implicatie_regula',':'],propoz(Atunci),['|','fc','#','(',FC,')','[',/,regula,']'].
 atunci(Atunci,100) --> propoz(Atunci).
 
 propoz(not av(Atr,da)) --> [Atr,'not']. 
