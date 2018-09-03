@@ -295,7 +295,7 @@ optiuni # {da * nu}
 [/intrebare].
 
 [intrebare]
-text # 'Din ce categorie facde parte problema dvs?'
+text # 'Din ce categorie face parte problema dvs?'
 atributul_intrebarii # categoria_problemei
 optiuni # {software * hardware * suport}
 [/intrebare].
