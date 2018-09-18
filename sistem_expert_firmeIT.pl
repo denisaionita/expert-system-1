@@ -113,7 +113,7 @@ realizare_scop(Scop,FC_curent,Istorie) :-
 	fg(Scop,FC_curent,Istorie). %fg primeste scop si calculeaza fc_curent si istoric
 		
 fg(Scop,FC_curent,Istorie) :- %N id-ul regulii; in premise avem structurile av in Lista
-	regula(N, premise(Lista),concluzie(Scop,FC)),
+	regula(N, premise(Lista),concluzie(Scop,FC)),nl,write(N),nl,
 	demonstreaza(N,Lista,FC_premise,Istorie), % demonstreaza face produsul, ajusteaza fc-ul regulii in fct de noile info
 	ajusteaza(FC,FC_premise,FC_nou),
 	actualizeaza(Scop,FC_nou,FC_curent,N),

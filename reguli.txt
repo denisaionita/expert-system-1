@@ -3,6 +3,15 @@
 [regula]
 nr:1
 premise_regula: 
+	aplicatie_existenta not,
+    creezi_software,
+implicatie_regula:
+    categoria_necesitatii # (software) | fc # (92)
+[/regula].
+
+[regula]
+nr:2
+premise_regula: 
     creezi_software not,
 	timp_disponibil # (negociabil),
 	proiect_mare not
@@ -12,7 +21,7 @@ implicatie_regula:
 
 
 [regula]
-nr:2
+nr:3
 premise_regula: 
     creezi_software,
 	timp_disponibil # (negociabil),
@@ -23,7 +32,7 @@ implicatie_regula:
 
 
 [regula]
-nr:3
+nr:4
 premise_regula: 
     creezi_software,
 	timp_disponibil # (negociabil),
@@ -33,7 +42,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:4
+nr:5
 premise_regula: 
     creezi_software not,
 	timp_disponibil # (perioada_indelungata),
@@ -43,7 +52,7 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:5
+nr:6
 premise_regula: 
     creezi_software,
 	timp_disponibil # (perioada_indelungata),
@@ -53,23 +62,13 @@ implicatie_regula:
 [/regula].
 
 [regula]
-nr:6
+nr:7
 premise_regula: 
     creezi_software,
 	timp_disponibil # (imediat),
 	proiect_mare 
 implicatie_regula:
     buget # (mare) | fc # (90)
-[/regula].
-
-[regula]
-nr:7
-premise_regula: 
-    creezi_software not,
-	timp_disponibil # (imediat),
-	proiect_mare
-implicatie_regula:
-    buget # (mare) | fc # (91)
 [/regula].
 
 [regula]
@@ -85,9 +84,11 @@ implicatie_regula:
 [regula]
 nr:9
 premise_regula: 
-    creezi_software,
+    creezi_software not,
+	timp_disponibil # (imediat),
+	proiect_mare
 implicatie_regula:
-    categoria_necesitatii # (software) | fc # (92)
+    buget # (mare) | fc # (91)
 [/regula].
 
 
@@ -104,7 +105,7 @@ implicatie_regula:
 [regula]
 nr:11
 premise_regula: 
-    creezi_software not,
+    creezi_software,
 	aplicatie_existenta,
 	necesita_backend
 implicatie_regula:
@@ -572,7 +573,7 @@ implicatie_regula:
 
 
 [intrebare]
-text # 'Scopul  tau este sa screezi software?'
+text # 'Scopul  tau este sa creezi software?'
 atributul_intrebarii # creezi_software 
 optiuni # {da * nu}
 [/intrebare].
@@ -617,12 +618,6 @@ optiuni # {da * nu}
 text # 'Aplicatia dvs are nevoie de servicii backend?'
 atributul_intrebarii # necesita_backend
 optiuni # {da * nu}
-[/intrebare].
-
-[intrebare]
-text # 'De ce tip de ajutor hardware aveti nevoie?'
-atributul_intrebarii # tip_hardware
-optiuni # {servere * calculatoare * infrastructura}
 [/intrebare].
 
 
