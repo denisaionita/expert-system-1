@@ -3,278 +3,573 @@
 [regula]
 nr:1
 premise_regula: 
-    creezi_software
+    creezi_software not,
+	timp_disponibil # (negociabil),
+	proiect_mare not
 implicatie_regula:
-    categoria_problemei # (software) | fc # (88)
+    buget # (mic) | fc # (88)
 [/regula].
+
 
 [regula]
 nr:2
 premise_regula: 
-    categoria_problemei # (software),
-	creezi_joc
+    creezi_software,
+	timp_disponibil # (negociabil),
+	proiect_mare not
 implicatie_regula:
-    domeniul_aplicatiei # (gaming) | fc # (87)
+    buget # (mic) | fc # (87)
 [/regula].
+
 
 [regula]
 nr:3
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	platforma_aplicatiei # (web),
-	nivelul_aplicatiei # (complet),
-	firma_autohtona not
+    creezi_software,
+	timp_disponibil # (negociabil),
+	proiect_mare
 implicatie_regula:
-    firma_solutie # (sparktech) | fc # (89)
+    buget # (mediu) | fc # (88)
 [/regula].
 
 [regula]
 nr:4
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	platforma_aplicatiei # (web),
-	nivelul_aplicatiei # (frontend),
-	firma_autohtona not
+    creezi_software not,
+	timp_disponibil # (perioada_indelungata),
+	proiect_mare not
 implicatie_regula:
-    firma_solutie # (sparktech) | fc # (87)
+    buget # (mediu) | fc # (87)
 [/regula].
 
 [regula]
 nr:5
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	platforma_aplicatiei # (mobile),
-	nivelul_aplicatiei # (frontend),
-	firma_autohtona not,
-	creezi_joc not
+    creezi_software,
+	timp_disponibil # (perioada_indelungata),
+	proiect_mare 
 implicatie_regula:
-    firma_solutie # (sparktech) | fc # (85)
+    buget # (mare) | fc # (89)
 [/regula].
-
 
 [regula]
 nr:6
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	platforma_aplicatiei # (mobile),
-	nivelul_aplicatiei # (complet),
-	tehnologii_ultima_ora # (machine_learning),
-	creezi_joc not
+    creezi_software,
+	timp_disponibil # (imediat),
+	proiect_mare 
 implicatie_regula:
-    firma_solutie # (sparktech) | fc # (90)
+    buget # (mare) | fc # (90)
 [/regula].
 
 [regula]
 nr:7
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	platforma_aplicatiei # (desktop),
-	domeniul_aplicatiei # (gaming)
+    creezi_software not,
+	timp_disponibil # (imediat),
+	proiect_mare
 implicatie_regula:
-    firma_solutie # (EA_Games) | fc # (88)
+    buget # (mare) | fc # (91)
 [/regula].
 
 [regula]
 nr:8
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	platforma_aplicatiei # (desktop),
-	domeniul_aplicatiei # (gaming),
-	tehnologii_ultima_ora # (vr)
+    creezi_software not,
+	timp_disponibil # (imediat),
+	proiect_mare
 implicatie_regula:
-    firma_solutie # (EA_Games) | fc # (85)
+    buget # (mare) | fc # (91)
 [/regula].
 
 [regula]
 nr:9
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (securitate),
-	platforma_aplicatiei # (desktop),
-	domeniul_aplicatiei # (security),
-	tehnologii_ultima_ora # (vr)
+    creezi_software,
 implicatie_regula:
-    firma_solutie # (Bitdefender) | fc # (85)
+    categoria_necesitatii # (software) | fc # (92)
 [/regula].
+
 
 [regula]
 nr:10
 premise_regula: 
-    categoria_problemei # (software),
-	creezi_software not,
-	necesitate_baza # (securitate),
-	platforma_aplicatiei # (desktop),
-	domeniul_aplicatiei # (security)
+    creezi_software not,
+	aplicatie_existenta not,
+	necesitate_serviciu # (securizare)
 implicatie_regula:
-    firma_solutie # (Bitdefender) | fc # (88)
+    categoria_necesitatii # (securitate) | fc # (93)
 [/regula].
 
 [regula]
 nr:11
 premise_regula: 
-    categoria_problemei # (software),
-	creezi_software not,
-	necesitate_baza # (securitate),
-	platforma_aplicatiei # (desktop),
-	firma_autohtona
+    creezi_software not,
+	aplicatie_existenta,
+	necesita_backend
 implicatie_regula:
-    firma_solutie # (Bitdefender) | fc # (90)
+    categoria_necesitatii # (software) | fc # (90)
 [/regula].
 
 [regula]
 nr:12
 premise_regula: 
-    categoria_problemei # (support),
-	tip_suport # (testare)
+    creezi_software not,
+	aplicatie_existenta,
+	necesita_backend not,
+	necesitate_serviciu # (testare)
 implicatie_regula:
-    firma_solutie # (Pluriva) | fc # (87)
+    categoria_necesitatii # (suport) | fc # (91)
 [/regula].
 
-[regula]
 nr:13
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	nivelul_aplicatiei # (backend)
-	firma_autohtona
+    creezi_software not,
+	aplicatie_existenta,
+	necesita_backend not,
 implicatie_regula:
-    firma_solutie # (Baquend) | fc # (91)
+    categoria_necesitatii # (suport) | fc # (90)
 [/regula].
 
 [regula]
 nr:14
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	nivelul_aplicatiei # (web)
-	firma_autohtona
+    creezi_software not,
+	aplicatie_existenta not,
 implicatie_regula:
-    firma_solutie # (Baquend) | fc # (90)
+    categoria_necesitatii # (hardware) | fc # (89)
 [/regula].
 
 [regula]
 nr:15
 premise_regula: 
-    categoria_problemei # (hardware),
-	necesitate_baza # (retelistica),
-	tip_hardware # (servere)
+    categoria_necesitatii # (suport),
+	necesitate_serviciu # (testare)
 implicatie_regula:
-    firma_solutie # (Cisco) | fc # (89)
+    tip_suport # (testare) | fc # (89)
 [/regula].
 
 [regula]
 nr:16
 premise_regula: 
-    categoria_problemei # (hardware),
-	necesitate_baza # (retelistica),
-	tip_hardware # (infrastructura)
+    categoria_necesitatii # (suport)
 implicatie_regula:
-    firma_solutie # (Cisco) | fc # (88)
+    tip_suport # (suport_tehnic) | fc # (88)
 [/regula].
 
 [regula]
 nr:17
 premise_regula: 
-    categoria_problemei # (software),
-	creezi_software not,
-	necesitate_baza # (retelistica)
+	categoria_necesitatii # (software),
+    aplicatie_completa
 implicatie_regula:
-    firma_solutie # (Cisco) | fc # (87)
+    nivelul_aplicatiei # (complet) | fc # (91)
 [/regula].
 
 [regula]
 nr:18
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	nivelul_aplicatiei # (complet),
-	platforma_aplicatiei # (mobile),
-	domeniul_aplicatiei # (banking),
-	tehnologii_ultima_ora # (machine_learning)
+	categoria_necesitatii # (software),
+    aplicatie_completa not,
+	necesita_backend
 implicatie_regula:
-    firma_solutie # (IBM) | fc # (92)
+    nivelul_aplicatiei # (backend) | fc # (92)
 [/regula].
 
 [regula]
 nr:19
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	nivelul_aplicatiei # (complet),
-	platforma_aplicatiei # (mobile),
-	tehnologii_ultima_ora # (machine_learning)
+	categoria_necesitatii # (software),
+    aplicatie_completa not,
+	necesita_backend not,
 implicatie_regula:
-    firma_solutie # (IBM) | fc # (82)
+    nivelul_aplicatiei # (frontend) | fc # (93)
 [/regula].
 
 [regula]
 nr:20
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	nivelul_aplicatiei # (frontend),
-	platforma_aplicatiei # (web)
+    buget # (mare),
+	proiect_mare,
+	tip_aplicatie # (joc)
 implicatie_regula:
-    firma_solutie # (EauDeWeb) | fc # (89)
+    tehnologii_ultima_ora # (vr) | fc # (90)
 [/regula].
 
 [regula]
 nr:21
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
+    buget # (mare),
+	proiect_mare,
+	nivelul_aplicatiei # (backend)
+implicatie_regula:
+    tehnologii_ultima_ora # (machine_learning) | fc # (89)
+[/regula].
+
+[regula]
+nr:22
+premise_regula: 
+    buget # (mare),
+	proiect_mare,
+	aplicatie_completa,
+	tip_aplicatie # (site)
+implicatie_regula:
+    tehnologii_ultima_ora # (machine_learning) | fc # (89)
+[/regula].
+
+[regula]
+nr:23
+premise_regula: 
+    buget # (mare),
+	proiect_mare,
+	tip_aplicatie # (aplicatie_telefon)
+implicatie_regula:
+    tehnologii_ultima_ora # (machine_learning) | fc # (87)
+[/regula].
+
+[regula]
+nr:24
+premise_regula: 
+    buget # (mare),
+	proiect_mare,
+	tip_aplicatie # (aplicatie_desktop)
+implicatie_regula:
+    tehnologii_ultima_ora # (blockchain) | fc # (88)
+[/regula].
+
+[regula]
+nr:25
+premise_regula: 
+    categoria_necesitatii # (securitate),
+	firma_autohtona
+implicatie_regula:
+    firma_solutie # (Bitdefender) | fc # (93)
+[/regula].
+
+[regula]
+nr:26
+premise_regula: 
+    categoria_necesitatii # (securitate),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (Bitdefender) | fc # (80)
+[/regula].
+
+
+[regula]
+nr:27
+premise_regula: 
+    categoria_necesitatii # (suport),
+	tip_suport # (testare),
+	firma_autohtona
+implicatie_regula:
+    firma_solutie # (Pluriva) | fc # (90)
+[/regula].
+
+[regula]
+nr:28
+premise_regula: 
+    categoria_necesitatii # (suport),
+	tip_suport # (testare),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (Pluriva) | fc # (80)
+[/regula].
+
+[regula]
+nr:29
+premise_regula: 
+    categoria_necesitatii # (hardware),
+	necesitate_serviciu # (retelistica),
+	buget # (mediu),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (Cisco) | fc # (91)
+[/regula].
+
+[regula]
+nr:30
+premise_regula: 
+    categoria_necesitatii # (hardware),
+	necesitate_serviciu # (configurare_monitorizare),
+	buget # (mediu),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (Cisco) | fc # (89)
+[/regula].
+
+[regula]
+nr:31
+premise_regula: 
+    categoria_necesitatii # (hardware),
+	necesitate_serviciu # (retelistica),
+	buget # (mic),
+	firma_autohtona
+implicatie_regula:
+    firma_solutie # (Cisco) | fc # (78)
+[/regula].
+
+
+[regula]
+nr:32
+premise_regula: 
+	categoria_necesitatii # (hardware),
+	necesitate_serviciu # (configurare_monitorizare),
+	buget # (mic),
+	firma_autohtona
+implicatie_regula:
+    firma_solutie # (DotNetwork) | fc # (93)
+[/regula].
+
+[regula]
+nr:33
+premise_regula: 
+    categoria_necesitatii # (suport),
+	tip_suport # (suport_tehnic),
+	buget # (mic),
+	firma_autohtona
+implicatie_regula:
+    firma_solutie # (DotNetwork) | fc # (92)
+[/regula].
+
+[regula]
+nr:34
+premise_regula: 
+    categoria_necesitatii # (suport),
+	tip_suport # (suport_tehnic),
+	buget # (mic),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (DotNetwork) | fc # (80)
+[/regula].
+
+[regula]
+nr:35
+premise_regula: 
+	categoria_necesitatii # (hardware),
+	necesitate_serviciu # (configurare_monitorizare),
+	buget # (mic),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (DotNetwork) | fc # (79)
+[/regula].
+
+
+[regula]
+nr:36
+premise_regula: 
+    categoria_necesitatii # (software),
 	nivelul_aplicatiei # (backend),
-	tehnologii_ultima_ora # (machine_learning)
+	buget # (mediu),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (Baquend) | fc # (91)
+[/regula].
+
+[regula]
+nr:37
+premise_regula: 
+    categoria_necesitatii # (software),
+	nivelul_aplicatiei # (backend),
+	buget # (mic),
+	firma_autohtona
+implicatie_regula:
+    firma_solutie # (Baquend) | fc # (79)
+[/regula].
+
+[regula]
+nr:38
+premise_regula: 
+    categoria_necesitatii # (software),
+	nivelul_aplicatiei # (backend),
+	tehnologii_ultima_ora # (blockchain),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (AmazonWebServices) | fc # (89)
+[/regula].
+
+[regula]
+nr:39
+premise_regula: 
+    categoria_necesitatii # (software),
+	nivelul_aplicatiei # (backend),
+	buget # (mare),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (AmazonWebServices) | fc # (88)
+[/regula].
+
+
+[regula]
+nr:40
+premise_regula: 
+	categoria_necesitatii # (software),
+	nivelul_aplicatiei # (backend),
+	tehnologii_ultima_ora # (machine_learning),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (Microsoft) | fc # (90)
+[/regula].
+
+[regula]
+nr:41
+premise_regula: 
+	categoria_necesitatii # (software),
+	nivelul_aplicatiei # (backend),
+	buget # (mare),
+	firma_autohtona not
 implicatie_regula:
     firma_solutie # (Microsoft) | fc # (89)
 [/regula].
 
 
 [regula]
-nr:22
+nr:41
 premise_regula: 
-    categoria_problemei # (software),
-	necesitate_baza # (aplicatie),
-	nivelul_aplicatiei # (backend),
-	tehnologii_ultima_ora # (blockchain)
+    categoria_necesitatii # (software),
+	tip_aplicatie # (site),
+	nivelul_aplicatiei # (complet),
+	buget #(mediu),
+	firma_autohtona not
 implicatie_regula:
-    firma_solutie # (AmazonWebServices) | fc # (89)
+    firma_solutie # (Sparktech) | fc # (93)
 [/regula].
 
 [regula]
-nr:23
+nr:42
 premise_regula: 
-    categoria_problemei # (support),
-	necesitate_baza # (retelistica),
-	tip_suport # (administrare_monitorizare_retea)
+	categoria_necesitatii # (software),
+	tip_aplicatie # (aplicatie_telefon),
+	nivelul_aplicatiei # (complet),
+	buget #(mediu),
+	firma_autohtona not
 implicatie_regula:
-    firma_solutie # (DotNetwork) | fc # (89)
+    firma_solutie # (Sparktech) | fc # (89)
 [/regula].
 
 [regula]
-nr:24
+nr:43
 premise_regula: 
-    categoria_problemei # (support),
-	tip_suport # (suport_tehnic)
+	categoria_necesitatii # (software),
+	tip_aplicatie # (aplicatie_telefon),
+	nivelul_aplicatiei # (frontend),
+	buget #(mediu),
+	firma_autohtona not
 implicatie_regula:
-    firma_solutie # (DotNetwork) | fc # (90)
+    firma_solutie # (Sparktech) | fc # (86)
 [/regula].
 
 [regula]
-nr:25
+nr:44
 premise_regula: 
-    categoria_problemei # (support),
-	necesitate_baza # (retelistica),
-	tip_suport # (administrare_monitorizare_retea)
+	categoria_necesitatii # (software),	tip_aplicatie # (site),
+	nivelul_aplicatiei # (frontend),
+	buget #(mediu),
+	firma_autohtona not
 implicatie_regula:
-    firma_solutie # (Cisco)| fc # (87)
+    firma_solutie # (Sparktech) | fc # (85)
 [/regula].
+
+[regula]
+nr:45
+premise_regula: 
+	categoria_necesitatii # (software),	tip_aplicatie # (site),
+	nivelul_aplicatiei # (complet),
+	tehnologii_ultima_ora # (machine_learning),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (Sparktech) | fc # (90)
+[/regula]
+
+[regula]
+nr:46
+premise_regula: 
+	categoria_necesitatii # (software),	tip_aplicatie # (aplicatie_telefon),
+	nivelul_aplicatiei # (complet),
+	tehnologii_ultima_ora # (machine_learning),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (Sparktech) | fc # (91)
+[/regula]
+
+
+[regula]
+nr:47
+premise_regula: 
+    categoria_necesitatii # (software),	tip_aplicatie # (joc),
+	nivelul_aplicatiei # (complet),
+	tehnologii_ultima_ora # (machine_learning),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (EA_Games) | fc # (89)
+[/regula].
+
+[regula]
+nr:48
+premise_regula: 
+    categoria_necesitatii # (software),	tip_aplicatie # (joc),
+	nivelul_aplicatiei # (complet),
+	tehnologii_ultima_ora # (vr),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (EA_Games) | fc # (85)
+[/regula].
+
+[regula]
+nr:49
+premise_regula: 
+    categoria_necesitatii # (software),	tip_aplicatie # (joc),
+	nivelul_aplicatiei # (complet),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (EA_Games) | fc # (91)
+[/regula].
+
+
+[regula]
+nr:50
+premise_regula: 
+	categoria_necesitatii # (software),	tip_aplicatie # (aplicatie_telefon),
+	nivelul_aplicatiei # (complet),
+	tehnologii_ultima_ora # (machine_learning),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (IBM) | fc # (92)
+[/regula].
+
+[regula]
+nr:51
+premise_regula: 
+	categoria_necesitatii # (software),	tip_aplicatie # (aplicatie_telefon),
+	nivelul_aplicatiei # (complet),
+	buget # (mediu)
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (IBM) | fc # (88)
+[/regula].
+
+[regula]
+nr:52
+premise_regula: 
+	categoria_necesitatii # (software),	tip_aplicatie # (aplicatie_desktop),
+	nivelul_aplicatiei # (complet),
+	buget # (mediu)
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (IBM) | fc # (91)
+[/regula].
+
+[regula]
+nr:53
+premise_regula: 
+	categoria_necesitatii # (software),	tip_aplicatie # (site),
+	nivelul_aplicatiei # (frontend),
+	firma_autohtona not
+implicatie_regula:
+    firma_solutie # (EauDeWeb) | fc # (89)
+[/regula].
+
+
 
 [intrebare]
 text # 'Scopul  tau este sa screezi software?'
@@ -283,9 +578,9 @@ optiuni # {da * nu}
 [/intrebare].
 
 [intrebare]
-text # 'Doresti sa creezi un joc?'
-atributul_intrebarii # creezi_joc 
-optiuni # {da * nu}
+text # 'Cat timp disponibil ai pentru realizarea proiectului propus?'
+atributul_intrebarii # timp_disponibil 
+optiuni # {imediat * perioada_indelungata * negociabil}
 [/intrebare].
 
 [intrebare]
@@ -295,33 +590,33 @@ optiuni # {da * nu}
 [/intrebare].
 
 [intrebare]
-text # 'Din ce categorie face parte problema dvs?'
-atributul_intrebarii # categoria_problemei
-optiuni # {software * hardware * suport}
+text # 'In care dintre urmatoarele categorii se incadreaza serviciul de care aveti nevoie pentru echipamentele sau softul dvs?'
+atributul_intrebarii # necesitate_serviciu
+optiuni # {securizare * configurare_monitorizare * retelistica * testare}
 [/intrebare].
 
 [intrebare]
-text # 'La ce nivel al aplicatiei aveti nevoie de ajutor?'
-atributul_intrebarii # nivelul_aplicatiei
-optiuni # {frontend * backend * complet}
+text # 'Proiectul dvs este unul de mari dimensiuni?'
+atributul_intrebarii # proiect_mare
+optiuni # {da * nu}
 [/intrebare].
 
 [intrebare]
-text # 'Pe ce platforma este aplicatia dorita?'
-atributul_intrebarii # platforma_aplicatiei
-optiuni # {web * mobile * desktop}
+text # 'Doriti ca aplicatia de realizat sa fie completa (frontend si backend)?'
+atributul_intrebarii # aplicatie_completa
+optiuni # {da * nu}
 [/intrebare].
 
 [intrebare]
-text # 'In ce domeniu se incadreaza aplicatia?'
-atributul_intrebarii # domeniul_aplicatiei
-optiuni # {gaming * banking * security * medical}
+text # 'Aveti nevoie de ajutor pentru o aplicatie deja existenta?'
+atributul_intrebarii # aplicatie_existenta
+optiuni # {da * nu}
 [/intrebare].
 
 [intrebare]
-text # 'Doriti ca aplicatia sa contina tehnologii de ultima ora? Ce tehnologie?'
-atributul_intrebarii # tehnologii_ultima_ora
-optiuni # {vr * blockchain * machine_learning * senzori}
+text # 'Aplicatia dvs are nevoie de servicii backend?'
+atributul_intrebarii # necesita_backend
+optiuni # {da * nu}
 [/intrebare].
 
 [intrebare]
@@ -330,14 +625,9 @@ atributul_intrebarii # tip_hardware
 optiuni # {servere * calculatoare * infrastructura}
 [/intrebare].
 
-[intrebare]
-text # 'De ce tip de suport aveti nevoie?'
-atributul_intrebarii # tip_suport
-optiuni # {testare * suport_tehnic * administrare_monitorizare_retea}
-[/intrebare].
 
 [intrebare]
-text # 'Care ar fi necesitatea de baza a aplicatiei?'
-atributul_intrebarii # necesitate_baza
-optiuni # {securitate * aplicatie * retelistica}
+text # 'Ce tip de aplicatie doriti sa creati?'
+atributul_intrebarii # tip_aplicatie
+optiuni # {joc * site * aplicatie_telefon, aplicatie_desktop}
 [/intrebare].
