@@ -40,6 +40,7 @@ implicatie_regula:
     categoria_necesitatii # (suport) | fc # (91)
 [/regula].
 
+[regula]
 nr:5
 premise_regula: 
 	aplicatie_existenta,
@@ -468,7 +469,7 @@ premise_regula:
 	firma_autohtona not
 implicatie_regula:
     firma_solutie # (Sparktech) | fc # (91)
-[/regula]
+[/regula].
 
 
 [regula]
