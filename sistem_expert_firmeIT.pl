@@ -323,12 +323,12 @@ daca(Daca) --> [':'],lista_premise(Daca).
 lista_premise([Daca]) --> propoz(Daca).
 lista_premise([Prima|Celalalte]) --> propoz(Prima),[','],lista_premise(Celalalte).
 
-atunci(Atunci,FC) -->['implicatie_regula',':'],propoz(Atunci),['|','fc','#','(',FC,')','[',/,regula,']'].
+atunci(Atunci,FC) -->['implicatie_regula',':'],propoz(Atunci),['|','fc','#','(',FC,')','[','/','regula',']'].
 atunci(Atunci,100) --> propoz(Atunci).
 
 propoz(not av(Atr,da)) --> [Atr,'not']. 
 propoz(av(Atr,Val)) --> [Atr,'#','(',Val,')'].
-propoz(av(Atr,da)) --> [Atr,Val].
+propoz(av(Atr,da)) --> [Atr].
 
 incarca_descriere(F) :- 
 	retractall(descriere(_,_,_,_,_)),
