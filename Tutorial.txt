@@ -11,3 +11,10 @@ reinitiaza -  sterge baza de cunostinte ( reguli, tot)
 afisare_fapte - afiseaza toate atributele din baza de cunostinte
 cum - demonstratia
 iesire - inchide sistemul ( meniul)
+
+------------------
+
+close_all_streams. inchide toate fisierele care poate au ramas deschise ( util daca intri intr-un loop - ctrl+c, a, close_all_streams)
+
+listing(regula). afiseaza regulile din baza de cunostinte
+

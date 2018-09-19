@@ -113,7 +113,7 @@ realizare_scop(Scop,FC_curent,Istorie) :-
 	fg(Scop,FC_curent,Istorie). %fg primeste scop si calculeaza fc_curent si istoric
 		
 fg(Scop,FC_curent,Istorie) :- %N id-ul regulii; in premise avem structurile av in Lista
-	regula(N, premise(Lista),concluzie(Scop,FC)),nl,write(N),nl,
+	regula(N, premise(Lista),concluzie(Scop,FC)),%nl,write(N),nl,
 	demonstreaza(N,Lista,FC_premise,Istorie), % demonstreaza face produsul, ajusteaza fc-ul regulii in fct de noile info
 	ajusteaza(FC,FC_premise,FC_nou),
 	actualizeaza(Scop,FC_nou,FC_curent,N),
@@ -197,6 +197,7 @@ interogheaza(Atr,Mesaj,[da,nu],Istorie) :-
 	append([da],[nu],Opt1),   
 	append(Opt1,[nu_stiu],Opt2),
 	append(Opt2,[nu_conteaza],Opt),
+	nl,
 	scrie_lista(Opt),
 	nl, %afis intrebarea
 	de_la_utiliz(X,Istorie,[da,nu,nu_stiu,nu_conteaza]), 
@@ -212,6 +213,7 @@ interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
 citeste_opt(X,Optiuni,Istorie) :-
 	append(Optiuni,[nu_stiu],Opt2),
 	append(Opt2,[nu_conteaza],Opt),
+	nl,
 	scrie_lista(Opt),
 	de_la_utiliz(X,Istorie,Opt).
 
